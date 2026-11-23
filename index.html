@@ -3,9 +3,161 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello World</title>
+  <title>Sandbox | The Workshop Academy</title>
+  <meta name="description" content="Sandbox for experiments by The Workshop Academy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    /* Design tokens taken from theworkshopacademy.com */
+    :root {
+      --ink: hsl(208 35% 13%);
+      --bone: hsl(40 40% 89%);
+      --bone-text: hsl(40 40% 92%);
+      --bone-muted: hsl(36 30% 76%);
+      --copper: hsl(24 59% 45%);
+      --copper-light: hsl(25 55% 52%);
+      --oak: hsl(32 16% 43%);
+      --border: hsl(36 22% 78%);
+      --gradient-hero: radial-gradient(130% 90% at 82% -8%, #20323f 0%, #16232e 46%, #0f1922 100%);
+      --gradient-copper: linear-gradient(175deg, #c87a42 0%, #b5632e 70%, #9a4f22 100%);
+      --shadow-copper: 0 10px 30px -12px #b6652f73, 0 2px 6px -2px #b6652f40;
+      --radius: .6rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body { margin: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bone);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { width: 100%; max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    header {
+      background: var(--ink);
+      color: var(--bone-text);
+      border-bottom: 1px solid hsl(208 30% 20%);
+    }
+    header .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500; font-size: 1.15rem; letter-spacing: -.015em;
+      color: inherit; text-decoration: none;
+    }
+    .brand span { color: var(--copper-light); }
+    .tag {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--bone-muted);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--gradient-hero);
+      color: var(--bone-text);
+      padding: clamp(4rem, 12vw, 8rem) 0 clamp(4.5rem, 13vw, 9rem);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: .8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--copper-light);
+      margin: 0 0 1.5rem;
+    }
+    .eyebrow::before {
+      content: ""; width: 2rem; height: 1px; background: currentColor;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(3rem, 9vw, 5.5rem);
+      line-height: 1.02; letter-spacing: -.015em;
+      margin: 0 0 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--copper-light); }
+    .lead {
+      max-width: 36rem; margin: 0 0 2.5rem;
+      font-size: 1.125rem; color: var(--bone-muted);
+    }
+    .btn {
+      display: inline-block;
+      padding: .85rem 1.6rem;
+      border-radius: var(--radius);
+      background: var(--gradient-copper);
+      box-shadow: var(--shadow-copper);
+      color: hsl(30 45% 8%);
+      font-weight: 600; text-decoration: none;
+      transition: transform .15s cubic-bezier(.4,0,.2,1);
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    /* Body section */
+    main { flex: 1; padding: 4rem 0; }
+    .card {
+      max-width: 42rem;
+      background: hsl(40 42% 91%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .card h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500; font-size: 1.75rem; line-height: 1.1; letter-spacing: -.015em;
+      margin: 0 0 .75rem;
+    }
+    .card p { margin: 0; color: var(--oak); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: .75rem; letter-spacing: .05em; color: var(--oak);
+    }
+    footer a { color: var(--copper); }
+  </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="https://www.theworkshopacademy.com/">The Workshop <span>Academy</span></a>
+      <span class="tag">Sandbox</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Sandbox · Berlin</p>
+      <h1>Hello, <em>World!</em></h1>
+      <p class="lead">A playground for new ideas, games and workshop experiments from The Workshop Academy.</p>
+      <a class="btn" href="https://www.theworkshopacademy.com/">Visit the main site</a>
+    </div>
+  </section>
+
+  <main>
+    <div class="wrap">
+      <div class="card">
+        <h2>Work in progress</h2>
+        <p>This page is a starting point. New experiments will appear here as they are built.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© The Workshop Academy · <a href="https://www.theworkshopacademy.com/">theworkshopacademy.com</a></div>
+  </footer>
 </body>
 </html>
